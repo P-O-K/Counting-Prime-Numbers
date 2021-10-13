@@ -45,7 +45,7 @@ class PrimeCounter:
 
     def runSieve( self ) -> None:                                   # Toggle all non-primes in "_bit" array
 
-        START_INDEX = 3;                                            # Initializes with primes 2/3/5 preset 
+        START_INDEX = 3;                                            # Initializes with first primes preset 
         STEP_SIZE   = 2;                                            # Increments by 2 to skip even numbers
         MAX_LENGTH  = int( np.sqrt( self._size ) ) +1;              # Prevents excess loop indicies
 
