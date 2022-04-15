@@ -35,15 +35,15 @@ class PrimeCounter:
 
     def runSieve( self ) -> None:                                           # Toggle all non-primes in _bit array
 
-        START_INDEX = 3;                                                    # Initializes with first 3 values set 
-        STEP_SIZE   = 2;                                                    # Increments by 2 to skip even numbers
+        START_VALUE = 3;                                                    # Number to start from
+        INCREMENT   = 2;                                                    # Increments by 2 to skip even numbers
         MAX_LENGTH  = int( self._size **0.5 ) +1;                           # Prevents excess loop indicies
 
-        for index in range( START_INDEX, MAX_LENGTH, STEP_SIZE ):
-            if( self._bits[ index //2 ] ):                                  # Get bit
-                bitlen = len( self._bits ) -( index *1.5 );                 # Get the remaining length of the available array [ CURRENT -> END ]
-                bitlen = int( bitlen /index ) +( index &1 );                # Devide by the index for the amount of remaining multiples and add (index==ODD)
-                self._bits[ int( index *1.5 ) :: index ] = b'\x00' *bitlen; # Toggle bits*( amount of bits to change ) to b\x00 == ZERO
+        for number in range( START_VALUE, MAX_LENGTH, INCREMENT ):
+            if( self._bits[ number //2 ] ):                                 # Check bit
+                bitlen = len( self._bits ) -( number *1.5 );                # Get the remaining length of the available array [ CURRENT -> END ]
+                bitlen = int( bitlen /number ) +( number &1 );              # Devide by the index for the amount of remaining multiples and add (index==ODD)
+                self._bits[ int( number *1.5 ) ::number ] =b'\x00' *bitlen; # Toggle bits*( amount of bits to change ) to b\x00 == ZERO
 
 
 
